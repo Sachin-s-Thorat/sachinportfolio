@@ -1,12 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { 
-  ShoppingCartIcon, 
-  ClipboardDocumentListIcon, 
-  FilmIcon,
-  ArrowTopRightOnSquareIcon 
-} from '@heroicons/react/24/outline';
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
+import cabBookingImg from '../assets/cab.jpg';
+import projectVideo from '../assets/Sms.mp4';
+import expense  from '../assets/Expense-Tracker.png';
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -16,40 +14,42 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-featured e-commerce platform with React frontend, Node.js backend, and Stripe payment integration.',
-      icon: <ShoppingCartIcon className="w-16 h-16" />,
-      gradient: 'from-indigo-900/50 to-purple-900/50',
-      color: 'text-indigo-400',
-      hoverColor: 'hover:text-indigo-300',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      delay: 0
+      title: 'Expense trackers',
+      description:
+        'This project built In Using React And Use Local Storge  Html CSS JS and Bosstrap Using State Mangment ',
+      media: expense, // 
+      type: 'image',
+      technologies: ['React', 'Html', 'css', 'Bosstrap'],
+      repoLink: 'https://github.com/Sachin-s-Thorat/My-Expense',
+      delay: 0,
     },
     {
-      title: 'Project Management App',
-      description: 'Collaborative project management tool with real-time updates, task tracking, and team collaboration features.',
-      icon: <ClipboardDocumentListIcon className="w-16 h-16" />,
-      gradient: 'from-purple-900/50 to-pink-900/50',
-      color: 'text-purple-400',
-      hoverColor: 'hover:text-purple-300',
-      technologies: ['Vue.js', 'Express', 'Socket.io', 'PostgreSQL'],
-      delay: 0.2
+      title: 'Employee Record Management',
+      description:
+        'The application supports CRUD operations such as adding, updating, deleting, and retrieving employee records.I used Spring Data JPA and Hibernate for database interaction and exposed RESTful APIs for client communication',
+      media:projectVideo , // video path
+      type: 'video',
+      technologies: ['React', 'Spring', 'Postman', 'MySql'],
+      repoLink: 'https://github.com/Sachin-s-Thorat/Ems_Backed_react',
+      delay: 0.2,
     },
     {
-      title: 'Streaming Service',
-      description: 'Video streaming platform with user profiles, recommendations, and multi-device support.',
-      icon: <FilmIcon className="w-16 h-16" />,
-      gradient: 'from-pink-900/50 to-rose-900/50',
-      color: 'text-pink-400',
-      hoverColor: 'hover:text-pink-300',
-      technologies: ['React Native', 'Python', 'AWS', 'Redis'],
-      delay: 0.4
+      title: 'Cab Booking System',
+      description:
+        'CLI-based Java project using strong OOP concepts and exception handling to solve real-world problems.',
+      media: cabBookingImg,
+      type: 'image',
+      technologies: ['Java', 'OOP', 'Abstraction', 'Polymorphism'],
+      repoLink: 'https://github.com/Sachin-s-Thorat/Cab-Booking-System',
+      delay: 0.4,
     },
   ];
 
   return (
     <section id="projects" className="py-20 bg-black/50">
       <div className="container mx-auto px-6">
+
+        {/* Section Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -60,64 +60,84 @@ const Projects = () => {
             My <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Here are some of my recent fullstack development projects
+            Some of my recent full-stack and Java projects
           </p>
         </motion.div>
 
+        {/* Projects Grid */}
         <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: project.delay }}
               whileHover={{ y: -10 }}
-              className="glow-card bg-gray-900/50 rounded-xl overflow-hidden group"
+              className=" glow-card bg-gray-900/60 rounded-xl overflow-hidden shadow-lg group"
             >
-              <div className={`h-48 ${project.gradient} overflow-hidden flex items-center justify-center`}>
-                {project.icon}
-              </div>
+
+              {/* Image / Video */}
+              <a
+                href={project.repoLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block overflow-hidden"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
+                  className="h-48 w-full"
+                >
+                  {project.type === 'image' ? (
+                    <img
+                      src={project.media}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <video
+                      src={project.media}
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      loop
+                      muted
+                    />
+                  )}
+                </motion.div>
+              </a>
+
+              {/* Content */}
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                 <p className="text-gray-400 mb-4">{project.description}</p>
-                
+
+                {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech) => (
-                    <span 
+                    <span
                       key={tech}
-                      className="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                      className="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                
+
+                {/* GitHub Link */}
                 <motion.a
                   whileHover={{ x: 5 }}
-                  href="#"
-                  className={`${project.color} ${project.hoverColor} font-medium flex items-center cursor-pointer`}
+                  href={project.repoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-400 hover:text-indigo-300 font-medium flex items-center"
                 >
-                  View Project <ArrowTopRightOnSquareIcon className="w-4 h-4 ml-2" />
+                  View Project
+                  <ArrowTopRightOnSquareIcon className="w-4 h-4 ml-2" />
                 </motion.a>
               </div>
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center mt-12"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center px-6 py-3 border border-gray-700 text-white rounded-lg font-medium hover:border-indigo-500 hover:bg-indigo-500/10 transition-all duration-300"
-          >
-            View All Projects <ArrowTopRightOnSquareIcon className="w-4 h-4 ml-2" />
-          </motion.button>
-        </motion.div>
       </div>
     </section>
   );

@@ -44,9 +44,10 @@ const Skills = () => {
       color: 'from-pink-600 to-rose-600',
       textColor: 'text-pink-400',
       skills: [
-        { name: 'AWS', percentage: 75 },
-        { name: 'Docker', percentage: 70 },
-        { name: 'Git/GitHub', percentage: 95 }
+        { name: 'Git/GitHub', percentage: 95 } ,
+        { name: 'Strong Communication', percentage: 90 },
+        { name: ' Problem-Solving', percentage: 80 },
+        { name: 'AI & Machine Learning Awareness', percentage: 85 }
        
       ]
     },

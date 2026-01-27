@@ -9,7 +9,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { ArrowUpIcon } from '@heroicons/react/24/solid';
-
+import Chatbot from "./components/Chatbot";
 function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
@@ -35,6 +35,7 @@ function App() {
       <Projects />
       <Contact />
       <Footer />
+       <Chatbot />
       
       {/* Back to Top Button */}
       {showBackToTop && (
