@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import cabBookingImg from '../assets/cab.jpg';
-import projectVideo from '../assets/Sms.mp4';
+import EMS from   '../assets/Ems.png';
+
 import expense  from '../assets/Expense-Tracker.png';
 
 const Projects = () => {
@@ -20,15 +21,15 @@ const Projects = () => {
       media: expense, // 
       type: 'image',
       technologies: ['React', 'Html', 'css', 'Bosstrap'],
-      repoLink: 'https://github.com/Sachin-s-Thorat/My-Expense',
+      repoLink: 'https://github.com/Sachin-s-Thorat/My-Expensec:\Users\ADMIN\Downloads\Resume.pdf',
       delay: 0,
     },
     {
       title: 'Employee Record Management',
       description:
         'The application supports CRUD operations such as adding, updating, deleting, and retrieving employee records.I used Spring Data JPA and Hibernate for database interaction and exposed RESTful APIs for client communication',
-      media:projectVideo , // video path
-      type: 'video',
+      media: EMS, // video path
+      type: 'image',
       technologies: ['React', 'Spring', 'Postman', 'MySql'],
       repoLink: 'https://github.com/Sachin-s-Thorat/Ems_Backed_react',
       delay: 0.2,
