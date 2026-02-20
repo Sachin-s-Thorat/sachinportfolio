@@ -139,10 +139,10 @@ const About = () => {
                   <h4 className="text-2xl font-bold gradient-text">10+</h4>
                   <p className="text-sm text-gray-400">Projects</p>
                 </div>
-                <div>
+                {/* <div>
                   <h4 className="text-2xl font-bold gradient-text">100+</h4>
                   <p className="text-sm text-gray-400">DSA Problems</p>
-                </div>
+                </div> */}
                 <div>
                   <h4 className="text-2xl font-bold gradient-text">∞</h4>
                   <p className="text-sm text-gray-400">Learning</p>
